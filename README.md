@@ -1,6 +1,6 @@
 # API dastyor
 
-Laravel dostyor, loyihani bir zumda qurishga yordam beradi
+Laravel dastyor, loyihani bir zumda qurishga yordam beradi
 
 ## Talablar (Requirements)
 
