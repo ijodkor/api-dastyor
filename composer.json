@@ -1,6 +1,6 @@
 {
     "name": "ijodkor/api-dastyor",
-    "description": "Laravel dostyor, loyihani bir zumda qurishga yordam beradi",
+    "description": "Laravel dastyor, loyihani bir zumda qurishga yordam beradi",
     "type": "library",
     "license": "MIT",
     "authors": [
