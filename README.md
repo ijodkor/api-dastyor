@@ -37,9 +37,6 @@ php artisan vendor:publish --provider="Uzinfocom\Dastyor\MainServiceProvider"
 
 ### Foydali havolalar (Links)
 
-## Mualliflik
-- G&#8216;oya muallifi - [Qurbonboyev Dilmurod](https://github.com/DilmurodQurbonboyev)
-
 - [PHP-FIG](https://www.php-fig.org/)
 - [Create Laravel package](https://laravel-news.com/building-your-own-laravel-packages)
 - [Create package](https://medium.com/@prevailexcellent/how-i-created-my-third-laravel-package-step-by-step-guide-ad3fb0da5399)
@@ -47,3 +44,7 @@ php artisan vendor:publish --provider="Uzinfocom\Dastyor\MainServiceProvider"
 - [Read file as lines](https://code.tutsplus.com/read-a-file-line-by-line-with-php--cms-92971t)
 - [Add item to any index](https://www.geeksforgeeks.org/program-to-insert-new-item-in-array-on-any-position-in-php/)
 - [Right trim](https://www.php.net/manual/en/function.rtrim.php)
+
+## Mualliflik
+- G&#8216;oya muallifi - [Qurbonboyev Dilmurod](https://github.com/DilmurodQurbonboyev)
+  
