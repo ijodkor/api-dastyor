@@ -37,6 +37,9 @@ php artisan vendor:publish --provider="Uzinfocom\Dastyor\MainServiceProvider"
 
 ### Foydali havolalar (Links)
 
+## Mualliflik
+- G&#8216;oya muallifi - [Qurbonboyev Dilmurod](https://github.com/DilmurodQurbonboyev)
+
 - [PHP-FIG](https://www.php-fig.org/)
 - [Create Laravel package](https://laravel-news.com/building-your-own-laravel-packages)
 - [Create package](https://medium.com/@prevailexcellent/how-i-created-my-third-laravel-package-step-by-step-guide-ad3fb0da5399)
