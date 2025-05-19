@@ -6,7 +6,7 @@ use Ijodkor\ApiResponse\Responses\RestResponse;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Schema;
 
-class GenerateRequest extends AllGenerator {
+class RequestBuilderService extends AllGenerator {
     use RestResponse;
 
     public function __construct() {

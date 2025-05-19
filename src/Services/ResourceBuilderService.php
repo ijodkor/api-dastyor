@@ -5,7 +5,7 @@ namespace Uzinfocom\Dastyor\Services;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Schema;
 
-class GenerateResource extends AllGenerator {
+class ResourceBuilderService extends AllGenerator {
 
     public function __construct() {
         $this->stab = 'resource.stub';

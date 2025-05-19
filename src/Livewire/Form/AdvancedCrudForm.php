@@ -2,6 +2,7 @@
 
 namespace Uzinfocom\Dastyor\Livewire\Form;
 
+use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 use Uzinfocom\Dastyor\Helpers\StorageManager;
@@ -90,9 +91,11 @@ class AdvancedCrudForm extends Form {
     public $crudType = 1;
 
 
+    /**
+     * @throws ValidationException
+     */
     public function store(GenerateCrud $service): void {
         $this->validate();
-
-        $service->generate($this->all());
+        $service->create($this->all());
     }
 }

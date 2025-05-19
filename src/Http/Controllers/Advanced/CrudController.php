@@ -6,11 +6,11 @@ use Exception;
 use Illuminate\Contracts\View\View;
 use Uzinfocom\Dastyor\Http\Controllers\Controller;
 use Uzinfocom\Dastyor\Http\Requests\CrudRequest;
-use Uzinfocom\Dastyor\Services\Generator;
+use Uzinfocom\Dastyor\Services\GeneratorService;
 
 class CrudController extends Controller {
 
-    public function __construct(private readonly Generator $generator) {
+    public function __construct(private readonly GeneratorService $service) {
     }
 
     public function create(): View {
@@ -19,10 +19,10 @@ class CrudController extends Controller {
 
     public function store(CrudRequest $request) {
         try {
-            $this->generator->generateCrud($request->validated());
+            $this->service->crud($request->validated());
             return redirect()->back();
         } catch (Exception $ex) {
-            dd($ex);
+            return redirect()->back()->with('msg', $ex->getMessage());
         }
     }
 }
