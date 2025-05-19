@@ -57,7 +57,27 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
+                    <!-- List Request Name -->
+                    <div class="mb-3">
+                        <label class="form-label" for="name">List Request Nomi</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-light">
+                                <input class="form-check-input" type="checkbox" wire:model="form.isListRequest"
+                                       checked/>
+                            </span>
+                            <span class="input-group-text bg-light">{{ $form->listRequestPrefix }}</span>
+                            <input type="text" wire:model="form.listRequestName" class="form-control"
+                                   autocomplete="off">
+                            <span class="input-group-text bg-light">{{ $form->listRequestSuffix }}</span>
+                        </div>
+
+                        @error('form.listRequestName')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-4">
                     <!-- Create Request Name -->
                     <div class="mb-3">
                         <label class="form-label" for="name">Create Request Nomi</label>
@@ -78,7 +98,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <!-- Update Request Name -->
                     <div class="mb-3">
                         <label class="form-label" for="name">Update Request Nomi</label>

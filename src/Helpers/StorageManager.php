@@ -13,6 +13,10 @@ trait StorageManager {
         return File::get($this->root(self::STUB_PATH . "/$this->stab"));
     }
 
+    public function getListStub(): string {
+        return File::get($this->root(self::STUB_PATH . "/$this->list_stab"));
+    }
+
     public function getRelationStub($stub): string {
         return File::get($this->root(self::STUB_PATH . "/" . $stub));
     }

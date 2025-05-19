@@ -23,10 +23,10 @@ class {{ name }}Controller extends Controller {
     ) {
     }
 
-    public function index(Request $request): JsonResponse {
+    public function index({{ name }}Request $request): JsonResponse {
         try {
-            $paginate = $request->query('paginate') ?? 12;
-            return $this->paginated({{ modelName }}Resource::collection($this->service->all($paginate)), '{{ modelNamePlural }}');
+            $models = $this->service->all($request->validated());
+            return $this->paginated({{ modelName }}Resource::collection($models), '{{ modelNamePlural }}');
         } catch (Exception $exception) {
             return $this->fail(message: $exception->getMessage());
         }

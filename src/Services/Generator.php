@@ -6,15 +6,15 @@ use Illuminate\Support\Arr;
 
 readonly class Generator {
     public function __construct(
-        private GenerateModel      $generateModel,
-        private ServiceGenerator   $service,
-        private GenerateResource   $resource,
-        private GenerateRequest    $request,
-        private GenerateController $controller,
-        private GenerateCrud       $crud,
-        private GenerateMethod     $method,
-        private GenerateRoute      $generateRoute,
-        private GenerateEnum $enum,
+            private GenerateModel      $generateModel,
+            private ServiceGenerator   $service,
+            private GenerateResource   $resource,
+            private GenerateRequest    $request,
+            private GenerateController $controller,
+            private GenerateCrud       $crud,
+            private GenerateMethod     $method,
+            private GenerateRoute      $generateRoute,
+            private GenerateEnum       $enum,
     ) {
     }
 
@@ -43,6 +43,8 @@ readonly class Generator {
         $this->request->generateCreate($tableName, $requestName, $requestNamespace);
         /** Request update **/
         $this->request->generateUpdate($tableName, $requestName, $requestNamespace);
+        /** Request list **/
+        $this->request->generateList($tableName, $requestName, $requestNamespace);
 
         /** Controller class **/
         $controllerName = Arr::get($data, 'controller_name');
@@ -75,6 +77,7 @@ readonly class Generator {
 
     public function generateRequest(array $data): void {
         $model = Arr::get($data, 'model');
+        $listRequest = Arr::get($data, 'list_request');
 
         /** Request class **/
         $name = Arr::get($data, 'name');
@@ -84,6 +87,11 @@ readonly class Generator {
         $this->request->generateCreate($model, $name, $namespace);
         /** Request update **/
         $this->request->generateUpdate($model, $name, $namespace);
+
+        if ($listRequest) {
+            /** Request list **/
+            $this->request->generateList($model, $name, $namespace);
+        }
     }
 
     public function generateResource(array $attributes): void {

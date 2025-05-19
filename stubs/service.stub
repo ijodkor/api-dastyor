@@ -5,10 +5,12 @@ namespace {{ namespace }};
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Model;
 use {{ modelNamespace }};
+use Illuminate\Support\Arr;
 
 class {{ name }}Service {
 
-    public function all($limit): LengthAwarePaginator {
+    public function all(array $params = []): LengthAwarePaginator {
+        $limit = Arr::get($params, 'limit', 20);
         return {{ modelName }}::query()->paginate($limit);
     }
 
