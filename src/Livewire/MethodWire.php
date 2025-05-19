@@ -4,10 +4,8 @@ namespace Uzinfocom\Dastyor\Livewire;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 use Uzinfocom\Dastyor\Boot\Boot;
-use Uzinfocom\Dastyor\Services\Utils\EntityFinderService;
+use Uzinfocom\Dastyor\Shared\Utils\EntityFinderService;
 
 class MethodWire extends GeneratorWire {
 

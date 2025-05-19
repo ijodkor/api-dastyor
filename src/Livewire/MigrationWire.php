@@ -8,8 +8,8 @@ use Livewire\Attributes\Validate;
 use Uzinfocom\Dastyor\Boot\Boot;
 use Uzinfocom\Dastyor\Models\ColumnType;
 use Uzinfocom\Dastyor\Services\Migration\MigrationBuildService;
-use Uzinfocom\Dastyor\Services\Utils\EntityFinderService;
-use Uzinfocom\Dastyor\Services\Utils\TableFinderService;
+use Uzinfocom\Dastyor\Shared\Utils\EntityFinderService;
+use Uzinfocom\Dastyor\Shared\Utils\TableFinderService;
 
 
 class MigrationWire extends GeneratorWire {
@@ -42,6 +42,7 @@ class MigrationWire extends GeneratorWire {
 
     public Collection $types;
     public Collection $tables;
+    public Collection $schemas;
 
     public function __construct() {
         $this->columns = collect();
@@ -50,7 +51,8 @@ class MigrationWire extends GeneratorWire {
 
     public function boot(EntityFinderService $modelFinder, TableFinderService $tableFinder = null): void {
         // Tables
-        $this->tables = $tableFinder->getMigratedTables();
+        $this->schemas = $tableFinder->getSchemas();
+        $this->tables = $tableFinder->getTables();
 
         // Types
         $types = Boot::getFromJson(Boot::getDatabase("data-types.json"));
@@ -85,6 +87,10 @@ class MigrationWire extends GeneratorWire {
         ]);
 
         session()->flash('success', 'Jadval muvaffaqiyatli yaratildi!');
+    }
+
+    public function remove(int $key): void {
+        $this->columns->pull($key);
     }
 
     public function render(): View {

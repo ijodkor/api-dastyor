@@ -4,7 +4,7 @@ namespace Uzinfocom\Dastyor\Services;
 
 use Uzinfocom\Dastyor\Container\IGenerator;
 
-class ServiceGenerator extends AllGenerator implements IGenerator {
+class ServiceBuilder extends AllGenerator implements IGenerator {
 
     public function __construct() {
         $this->stab = 'service.stub';

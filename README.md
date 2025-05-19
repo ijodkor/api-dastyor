@@ -26,7 +26,7 @@ composer require ijodkor/api-dastyor
 1. Media fayllar public papkaga chiqariladi
 
 ```php
-php artisan vendor:publish --provider="Uzinfocom\Dastyor\MainServiceProvider"
+php artisan vendor:publish --provider="Uzinfocom\Dastyor\AssistantServiceProvider"
 ```
 
 2. ``/dastyor`` Manziliga o&#8216;tiladi.
@@ -44,6 +44,8 @@ php artisan vendor:publish --provider="Uzinfocom\Dastyor\MainServiceProvider"
 - [Read file as lines](https://code.tutsplus.com/read-a-file-line-by-line-with-php--cms-92971t)
 - [Add item to any index](https://www.geeksforgeeks.org/program-to-insert-new-item-in-array-on-any-position-in-php/)
 - [Right trim](https://www.php.net/manual/en/function.rtrim.php)
+- [Get postgres schemas](https://dba.stackexchange.com/questions/40045/how-do-i-list-all-schemas-in-postgresql)
+- [Get tables](https://neon.tech/postgresql/postgresql-administration/postgresql-show-tables)
 
 ## Mualliflik
 - G&#8216;oya muallifi - [Qurbonboyev Dilmurod](https://github.com/DilmurodQurbonboyev)

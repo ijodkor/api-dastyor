@@ -68,7 +68,7 @@ class GenerateCrud extends AllGenerator {
             $useService
         ], $stub);
 
-        $generator = new ServiceGenerator();
+        $generator = new ServiceBuilder();
         $generator->generate(
             $modelInfo,
             Str::afterLast($form['serviceName'], '\\'),

@@ -6,15 +6,15 @@ use Illuminate\Support\Arr;
 
 readonly class Generator {
     public function __construct(
-        private GenerateModel      $generateModel,
-        private ServiceGenerator   $service,
-        private GenerateResource   $resource,
-        private GenerateRequest    $request,
-        private GenerateController $controller,
-        private GenerateCrud       $crud,
-        private GenerateMethod     $method,
-        private GenerateRoute      $generateRoute,
-        private GenerateEnum $enum,
+        private GenerateModel        $generateModel,
+        private ServiceBuilder       $service,
+        private GenerateResource     $resource,
+        private GenerateRequest      $request,
+        private GenerateController   $controller,
+        private GenerateCrud         $crud,
+        private MethodBuilderService $method,
+        private GenerateRoute        $generateRoute,
+        private GenerateEnum         $enum,
     ) {
     }
 

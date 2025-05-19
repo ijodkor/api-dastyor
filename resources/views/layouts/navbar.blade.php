@@ -82,7 +82,7 @@
                     data-bs-auto-close="outside"
                     aria-expanded="false">
                     <i class="ti ti-bell ti-md"></i>
-                    <span class="badge bg-danger rounded-pill badge-notifications">5</span>
+                    <span class="badge bg-danger rounded-pill badge-notifications">0</span>
                 </a>
             </li>
         </ul>

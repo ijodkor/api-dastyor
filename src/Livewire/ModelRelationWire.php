@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Uzinfocom\Dastyor\Boot\Boot;
 use Uzinfocom\Dastyor\Helpers\StorageManager;
-use Uzinfocom\Dastyor\Services\Utils\EntityFinderService;
+use Uzinfocom\Dastyor\Shared\Utils\EntityFinderService;
 
 class ModelRelationWire extends GeneratorWire {
     use StorageManager;

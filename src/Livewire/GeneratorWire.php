@@ -2,12 +2,12 @@
 
 namespace Uzinfocom\Dastyor\Livewire;
 
-use Uzinfocom\Dastyor\Boot\Boot;
-use Uzinfocom\Dastyor\Services\Utils\EntityFinderService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use Uzinfocom\Dastyor\Boot\Boot;
+use Uzinfocom\Dastyor\Shared\Utils\EntityFinderService;
 
 class GeneratorWire extends Component {
 

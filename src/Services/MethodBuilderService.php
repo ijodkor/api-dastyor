@@ -5,7 +5,7 @@ namespace Uzinfocom\Dastyor\Services;
 use Exception;
 use Illuminate\Support\Facades\File;
 
-class GenerateMethod extends AllGenerator {
+class MethodBuilderService extends AllGenerator {
 
     public function __construct() {
         $this->stab = 'method.stub';

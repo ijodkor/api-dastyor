@@ -24,7 +24,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^8.2",
+        "php": "^8.1|^8.2",
         "ijodkor/laravel-api-response": "^1.2",
         "illuminate/contracts": "^9.21|^10.0|^11.0",
         "illuminate/queue": "^9.21|^10.0|^11.0",
@@ -36,7 +36,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Uzinfocom\\Dastyor\\": "src/"
+            "Uzinfocom\\Dastyor\\": "src/",
+            "Ijodkor\\Dastyor\\": "src/"
         },
         "files": [
             "src/Helpers/helper.php"
@@ -56,7 +57,7 @@
                 "Uzinfocom\\Dastyor\\AssistantServiceProvider"
             ],
             "aliases": {
-                "Dastyor": "Uzinfocom\\Dastyor"
+                "Dastyor": "Ijodkor\\Dastyor\\"
             }
         }
     }

@@ -5,6 +5,7 @@ namespace Uzinfocom\Dastyor\Services\Migration;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Arr;
 use Uzinfocom\Dastyor\Services\AllGenerator;
+use Uzinfocom\Dastyor\Shared\Migrator\AdvancedMigrationCreator;
 
 class MigrationBuildService extends AllGenerator {
 
