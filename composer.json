@@ -53,7 +53,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Uzinfocom\\Dastyor\\MainServiceProvider"
+                "Uzinfocom\\Dastyor\\AssistantServiceProvider"
             ],
             "aliases": {
                 "Dastyor": "Uzinfocom\\Dastyor"

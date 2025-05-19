@@ -18,7 +18,7 @@ use Uzinfocom\Dastyor\Livewire\RequestWire;
 use Uzinfocom\Dastyor\Livewire\ResourceWire;
 use Uzinfocom\Dastyor\Livewire\ServiceWire;
 
-class MainServiceProvider extends ServiceProvider {
+class AssistantServiceProvider extends ServiceProvider {
 
     private string $namespace;
 
