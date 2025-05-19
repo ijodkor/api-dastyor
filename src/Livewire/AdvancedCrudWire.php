@@ -1,10 +1,10 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Livewire;
+namespace Ijodkor\Dastyor\Livewire;
 
 
-use Uzinfocom\Dastyor\Livewire\Form\AdvancedCrudForm;
-use Uzinfocom\Dastyor\Services\GenerateCrud;
+use Ijodkor\Dastyor\Livewire\Form\AdvancedCrudForm;
+use Ijodkor\Dastyor\Services\GenerateCrud;
 
 class AdvancedCrudWire extends GeneratorWire {
 

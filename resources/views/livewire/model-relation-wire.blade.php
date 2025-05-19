@@ -84,7 +84,7 @@
                                                         wire:model="relationships.{{$key}}.relation_type"
                                                         class="form-select"
                                                     >
-                                                        @if($relationship['type'] === \Uzinfocom\Dastyor\Livewire\ModelRelationWire::RELATION_TYPE_BELONGS)
+                                                        @if($relationship['type'] === \Ijodkor\Dastyor\Livewire\ModelRelationWire::RELATION_TYPE_BELONGS)
                                                             @foreach($belongsToOptions as $belongsToOption)
                                                                 <option value="{{$belongsToOption['key']}}">
                                                                     <span>{{$belongsToOption['value']}}</span>

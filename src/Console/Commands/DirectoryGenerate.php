@@ -1,6 +1,6 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Console\Commands;
+namespace Ijodkor\Dastyor\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;

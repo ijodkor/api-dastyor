@@ -1,8 +1,8 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Services;
+namespace Ijodkor\Dastyor\Services;
 
-use Uzinfocom\Dastyor\Container\IGenerator;
+use Ijodkor\Dastyor\Container\IGenerator;
 
 class ServiceBuilder extends AllGenerator implements IGenerator {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Shared\Migrator;
+namespace Ijodkor\Dastyor\Shared\Migrator;
 
 use Illuminate\Database\Migrations\MigrationCreator;
 

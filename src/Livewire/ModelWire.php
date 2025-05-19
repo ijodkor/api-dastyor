@@ -1,13 +1,13 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Livewire;
+namespace Ijodkor\Dastyor\Livewire;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Uzinfocom\Dastyor\Boot\Boot;
-use Uzinfocom\Dastyor\Shared\Utils\EntityFinderService;
-use Uzinfocom\Dastyor\Shared\Utils\TableFinderService;
+use Ijodkor\Dastyor\Boot\Boot;
+use Ijodkor\Dastyor\Shared\Utils\EntityFinderService;
+use Ijodkor\Dastyor\Shared\Utils\TableFinderService;
 
 class ModelWire extends GeneratorWire {
 

@@ -1,15 +1,15 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Livewire;
+namespace Ijodkor\Dastyor\Livewire;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
-use Uzinfocom\Dastyor\Boot\Boot;
-use Uzinfocom\Dastyor\Helpers\StorageManager;
-use Uzinfocom\Dastyor\Shared\Utils\EntityFinderService;
+use Ijodkor\Dastyor\Boot\Boot;
+use Ijodkor\Dastyor\Helpers\StorageManager;
+use Ijodkor\Dastyor\Shared\Utils\EntityFinderService;
 
 class ModelRelationWire extends GeneratorWire {
     use StorageManager;

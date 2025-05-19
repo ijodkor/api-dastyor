@@ -1,6 +1,6 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Services;
+namespace Ijodkor\Dastyor\Services;
 
 use Ijodkor\ApiResponse\Responses\RestResponse;
 use Illuminate\Database\Eloquent\Model;

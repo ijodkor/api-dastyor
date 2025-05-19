@@ -1,12 +1,12 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Http\Controllers\Builders;
+namespace Ijodkor\Dastyor\Http\Controllers\Builders;
 
 use Exception;
 use Illuminate\Support\Arr;
-use Uzinfocom\Dastyor\Http\Controllers\Controller;
-use Uzinfocom\Dastyor\Http\Requests\ModelGenerateRequest;
-use Uzinfocom\Dastyor\Services\ModelBuilderService;
+use Ijodkor\Dastyor\Http\Controllers\Controller;
+use Ijodkor\Dastyor\Http\Requests\ModelGenerateRequest;
+use Ijodkor\Dastyor\Services\ModelBuilderService;
 
 class ModelBuilderController extends Controller {
 

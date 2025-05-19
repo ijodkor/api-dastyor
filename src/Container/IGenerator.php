@@ -1,6 +1,6 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Container;
+namespace Ijodkor\Dastyor\Container;
 
 interface IGenerator {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Boot;
+namespace Ijodkor\Dastyor\Boot;
 
 
 use Illuminate\Support\Facades\File;

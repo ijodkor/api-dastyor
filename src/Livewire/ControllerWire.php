@@ -1,6 +1,6 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Livewire;
+namespace Ijodkor\Dastyor\Livewire;
 
 class ControllerWire extends GeneratorWire {
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Http\Controllers;
+namespace Ijodkor\Dastyor\Http\Controllers;
 
 use Exception;
 use Illuminate\Support\Arr;
-use Uzinfocom\Dastyor\Http\Requests\GenerateMethodRequest;
-use Uzinfocom\Dastyor\Services\MethodBuilderService;
+use Ijodkor\Dastyor\Http\Requests\GenerateMethodRequest;
+use Ijodkor\Dastyor\Services\MethodBuilderService;
 
 class MethodBuilderController extends Controller {
 

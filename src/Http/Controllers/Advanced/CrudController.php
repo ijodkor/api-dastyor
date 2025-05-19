@@ -1,12 +1,12 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Http\Controllers\Advanced;
+namespace Ijodkor\Dastyor\Http\Controllers\Advanced;
 
 use Exception;
 use Illuminate\Contracts\View\View;
-use Uzinfocom\Dastyor\Http\Controllers\Controller;
-use Uzinfocom\Dastyor\Http\Requests\CrudRequest;
-use Uzinfocom\Dastyor\Services\GeneratorService;
+use Ijodkor\Dastyor\Http\Controllers\Controller;
+use Ijodkor\Dastyor\Http\Requests\CrudRequest;
+use Ijodkor\Dastyor\Services\GeneratorService;
 
 class CrudController extends Controller {
 

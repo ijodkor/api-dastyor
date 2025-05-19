@@ -1,9 +1,9 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Services;
+namespace Ijodkor\Dastyor\Services;
 
 use Illuminate\Support\Facades\File;
-use Uzinfocom\Dastyor\Helpers\StorageManager;
+use Ijodkor\Dastyor\Helpers\StorageManager;
 
 class AllGenerator {
     use StorageManager;

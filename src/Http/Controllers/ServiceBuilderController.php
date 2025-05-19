@@ -1,11 +1,11 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Http\Controllers;
+namespace Ijodkor\Dastyor\Http\Controllers;
 
 use Exception;
 use Illuminate\Support\Arr;
-use Uzinfocom\Dastyor\Http\Requests\GenerateServiceRequest;
-use Uzinfocom\Dastyor\Services\ServiceBuilder;
+use Ijodkor\Dastyor\Http\Requests\GenerateServiceRequest;
+use Ijodkor\Dastyor\Services\ServiceBuilder;
 
 class ServiceBuilderController extends Controller {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Helpers;
+namespace Ijodkor\Dastyor\Helpers;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;

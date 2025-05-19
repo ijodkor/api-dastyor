@@ -1,9 +1,9 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Livewire;
+namespace Ijodkor\Dastyor\Livewire;
 
 use Illuminate\Contracts\View\View;
-use Uzinfocom\Dastyor\Boot\Boot;
+use Ijodkor\Dastyor\Boot\Boot;
 
 class EnumWire extends GeneratorWire {
 

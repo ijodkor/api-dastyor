@@ -36,7 +36,6 @@
     },
     "autoload": {
         "psr-4": {
-            "Uzinfocom\\Dastyor\\": "src/",
             "Ijodkor\\Dastyor\\": "src/"
         },
         "files": [
@@ -54,7 +53,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Uzinfocom\\Dastyor\\AssistantServiceProvider"
+                "Ijodkor\\Dastyor\\AssistantServiceProvider"
             ],
             "aliases": {
                 "Dastyor": "Ijodkor\\Dastyor\\"

@@ -1,12 +1,12 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Livewire\Form;
+namespace Ijodkor\Dastyor\Livewire\Form;
 
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
-use Uzinfocom\Dastyor\Helpers\StorageManager;
-use Uzinfocom\Dastyor\Services\GenerateCrud;
+use Ijodkor\Dastyor\Helpers\StorageManager;
+use Ijodkor\Dastyor\Services\GenerateCrud;
 
 class AdvancedCrudForm extends Form {
     use StorageManager;

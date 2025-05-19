@@ -26,7 +26,7 @@ composer require ijodkor/api-dastyor
 1. Media fayllar public papkaga chiqariladi
 
 ```php
-php artisan vendor:publish --provider="Uzinfocom\Dastyor\AssistantServiceProvider"
+php artisan vendor:publish --provider="Ijodkor\Dastyor\AssistantServiceProvider"
 ```
 
 2. ``/dastyor`` Manziliga o&#8216;tiladi.

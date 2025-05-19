@@ -1,16 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Uzinfocom\Dastyor\Http\Controllers\Advanced\CrudController;
-use Uzinfocom\Dastyor\Http\Controllers\Builders\EnumBuilderController;
-use Uzinfocom\Dastyor\Http\Controllers\Builders\MigrationBuilderController;
-use Uzinfocom\Dastyor\Http\Controllers\Builders\ModelBuilderController;
-use Uzinfocom\Dastyor\Http\Controllers\Builders\RequestBuilderController;
-use Uzinfocom\Dastyor\Http\Controllers\Builders\ResourceBuilderController;
-use Uzinfocom\Dastyor\Http\Controllers\ControllerBuilderController;
-use Uzinfocom\Dastyor\Http\Controllers\MainController;
-use Uzinfocom\Dastyor\Http\Controllers\MethodBuilderController;
-use Uzinfocom\Dastyor\Http\Controllers\ServiceBuilderController;
+use Ijodkor\Dastyor\Http\Controllers\Advanced\CrudController;
+use Ijodkor\Dastyor\Http\Controllers\Builders\EnumBuilderController;
+use Ijodkor\Dastyor\Http\Controllers\Builders\MigrationBuilderController;
+use Ijodkor\Dastyor\Http\Controllers\Builders\ModelBuilderController;
+use Ijodkor\Dastyor\Http\Controllers\Builders\RequestBuilderController;
+use Ijodkor\Dastyor\Http\Controllers\Builders\ResourceBuilderController;
+use Ijodkor\Dastyor\Http\Controllers\ControllerBuilderController;
+use Ijodkor\Dastyor\Http\Controllers\MainController;
+use Ijodkor\Dastyor\Http\Controllers\MethodBuilderController;
+use Ijodkor\Dastyor\Http\Controllers\ServiceBuilderController;
 
 Route::get('/', MainController::class)->name('generator.index');
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Livewire;
+namespace Ijodkor\Dastyor\Livewire;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
-use Uzinfocom\Dastyor\Boot\Boot;
-use Uzinfocom\Dastyor\Shared\Utils\EntityFinderService;
+use Ijodkor\Dastyor\Boot\Boot;
+use Ijodkor\Dastyor\Shared\Utils\EntityFinderService;
 
 class MethodWire extends GeneratorWire {
 

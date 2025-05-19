@@ -1,5 +1,4 @@
 @extends(config('generator.layout'))
-@php use Uzinfocom\Dastyor\Boot\Boot; @endphp
 @section('content')
     <div class="content {{ request()->routeIs('advanced.*') ? 'active' : '' }}">
         <div class="row">

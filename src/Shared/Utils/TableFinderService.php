@@ -1,6 +1,6 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Shared\Utils;
+namespace Ijodkor\Dastyor\Shared\Utils;
 
 use Exception;
 use Illuminate\Support\Collection;

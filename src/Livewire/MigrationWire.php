@@ -1,15 +1,15 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Livewire;
+namespace Ijodkor\Dastyor\Livewire;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Livewire\Attributes\Validate;
-use Uzinfocom\Dastyor\Boot\Boot;
-use Uzinfocom\Dastyor\Models\ColumnType;
-use Uzinfocom\Dastyor\Services\Migration\MigrationBuildService;
-use Uzinfocom\Dastyor\Shared\Utils\EntityFinderService;
-use Uzinfocom\Dastyor\Shared\Utils\TableFinderService;
+use Ijodkor\Dastyor\Boot\Boot;
+use Ijodkor\Dastyor\Models\ColumnType;
+use Ijodkor\Dastyor\Services\Migration\MigrationBuildService;
+use Ijodkor\Dastyor\Shared\Utils\EntityFinderService;
+use Ijodkor\Dastyor\Shared\Utils\TableFinderService;
 
 
 class MigrationWire extends GeneratorWire {
