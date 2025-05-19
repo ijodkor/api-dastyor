@@ -30,8 +30,21 @@ class AdvancedCrudForm extends Form {
     #[Validate('required|boolean')]
     public $isCreateRequest = true;
 
+    #[Validate('boolean')]
+    public $isListRequest = true;
+
+
     #[Validate('required|string')]
     public $createRequestPrefix = 'App\Http\Requests\\';
+
+    #[Validate('string')]
+    public $listRequestPrefix = 'App\Http\Requests\\';
+
+    #[Validate('required|string')]
+    public $listRequestName = '';
+
+    #[Validate('string')]
+    public $listRequestSuffix = 'ListRequest';
 
     #[Validate('required|string')]
     public $createRequestName = '';

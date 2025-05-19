@@ -44,6 +44,9 @@ readonly class Generator {
         /** Request update **/
         $this->request->generateUpdate($tableName, $requestName, $requestNamespace);
 
+        /** Request list **/
+        $this->request->generateList($tableName, $requestName, $requestNamespace);
+
         /** Controller class **/
         $controllerName = Arr::get($data, 'controller_name');
         $controllerNamespace = Arr::get($data, 'controller_namespace');
@@ -75,6 +78,7 @@ readonly class Generator {
 
     public function generateRequest(array $data): void {
         $model = Arr::get($data, 'model');
+        $listRequest = Arr::get($data, 'list_request');
 
         /** Request class **/
         $name = Arr::get($data, 'name');
@@ -84,6 +88,11 @@ readonly class Generator {
         $this->request->generateCreate($model, $name, $namespace);
         /** Request update **/
         $this->request->generateUpdate($model, $name, $namespace);
+
+        if ($listRequest) {
+            /** Request list **/
+            $this->request->generateList($model, $name, $namespace);
+        }
     }
 
     public function generateResource(array $attributes): void {

@@ -12,6 +12,7 @@ class GenerateRequest extends AllGenerator {
     public function __construct() {
         $this->stab = 'request.stub';
         $this->group = "Request.php";
+        $this->list_stab = 'list-request.stub';
     }
 
     public function generateCreate(array $model, string $name, string $namespace): void {
@@ -28,13 +29,42 @@ class GenerateRequest extends AllGenerator {
 
         $name .= "Create";
         $content = str_replace([
-            '{{ namespace }}',
-            '{{ name }}',
-            '{{ rules }}',
+                '{{ namespace }}',
+                '{{ name }}',
+                '{{ rules }}',
         ], [
-            $namespace,
-            $name,
-            $rules
+                $namespace,
+                $name,
+                $rules
+        ], $stub);
+
+        // Make a director if it does not exist
+        $location = $this->resolvePath($namespace);
+
+        // Make ready boilerplate as Service $namespace/$name
+        $this->make($location, $name, $content);
+    }
+
+    public function generateList(array $model, string $name, string $namespace): void {
+        /* @var Model $entity */
+        // Read boilerplate from storage
+        $stub = $this->getListStub();
+
+        // Model
+        $modelNamespace = $model['namespace'];
+        $entity = new $modelNamespace();
+
+        $columns = $this->getTableColumns($entity->getTable());
+        $rules = $this->generateValidationRules($columns);
+
+        $content = str_replace([
+                '{{ namespace }}',
+                '{{ name }}',
+                '{{ rules }}',
+        ], [
+                $namespace,
+                $name,
+                $rules
         ], $stub);
 
         // Make a director if it does not exist
@@ -58,13 +88,13 @@ class GenerateRequest extends AllGenerator {
 
         $name .= "Update";
         $content = str_replace([
-            '{{ namespace }}',
-            '{{ name }}',
-            '{{ rules }}',
+                '{{ namespace }}',
+                '{{ name }}',
+                '{{ rules }}',
         ], [
-            $namespace,
-            $name,
-            $rules
+                $namespace,
+                $name,
+                $rules
         ], $stub);
 
         // Make a director if it does not exist
