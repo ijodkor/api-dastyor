@@ -51,6 +51,9 @@
                         <label for="scheme" class="form-label">Bazadagi jadvallar</label>
                         <select name="scheme" id="scheme" class="form-select">
                             <option value="">Jadvalni tanlang</option>
+                            @foreach($tables as $table)
+                                <option value="{{ $table->name }}">{{ $table->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

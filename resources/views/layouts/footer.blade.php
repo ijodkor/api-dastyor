@@ -5,7 +5,7 @@
             <div>
                 <span>© 2024 - </span>
                 <script>document.write(new Date().getFullYear());</script>
-                <span> Agrosanoat majmuida axborot texnologiyalarini joriy etish va rijovlantirish bo&#8216;limi</span>
+                <span> Agrosanoat majmuida axborot tizimlarini joriy qilish va rijovlantirish bo&#8216;limi</span>
                 <a href="https://uzinfocom.uz" target="_blank" class="fw-medium">Uzinfocom</a>
             </div>
             <div class="d-none d-lg-inline-block">
