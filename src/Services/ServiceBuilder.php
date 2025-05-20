@@ -2,9 +2,9 @@
 
 namespace Ijodkor\Dastyor\Services;
 
-use Ijodkor\Dastyor\Container\IGenerator;
+use Ijodkor\Dastyor\Container\IBuilderService;
 
-class ServiceBuilder extends AllGenerator implements IGenerator {
+class ServiceBuilder extends AllGenerator implements IBuilderService {
 
     public function __construct() {
         $this->stab = 'service.stub';

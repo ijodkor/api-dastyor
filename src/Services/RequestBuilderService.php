@@ -4,6 +4,7 @@ namespace Ijodkor\Dastyor\Services;
 
 use Ijodkor\ApiResponse\Responses\RestResponse;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
 
 class RequestBuilderService extends AllGenerator {
@@ -29,13 +30,13 @@ class RequestBuilderService extends AllGenerator {
 
         $name .= "Create";
         $content = str_replace([
-                '{{ namespace }}',
-                '{{ name }}',
-                '{{ rules }}',
+            '{{ namespace }}',
+            '{{ name }}',
+            '{{ rules }}',
         ], [
-                $namespace,
-                $name,
-                $rules
+            $namespace,
+            $name,
+            $rules
         ], $stub);
 
         // Make a director if it does not exist
@@ -58,13 +59,13 @@ class RequestBuilderService extends AllGenerator {
         $rules = $this->generateValidationRules($columns);
 
         $content = str_replace([
-                '{{ namespace }}',
-                '{{ name }}',
-                '{{ rules }}',
+            '{{ namespace }}',
+            '{{ name }}',
+            '{{ rules }}',
         ], [
-                $namespace,
-                $name,
-                $rules
+            $namespace,
+            $name,
+            $rules
         ], $stub);
 
         // Make a director if it does not exist
@@ -88,13 +89,13 @@ class RequestBuilderService extends AllGenerator {
 
         $name .= "Update";
         $content = str_replace([
-                '{{ namespace }}',
-                '{{ name }}',
-                '{{ rules }}',
+            '{{ namespace }}',
+            '{{ name }}',
+            '{{ rules }}',
         ], [
-                $namespace,
-                $name,
-                $rules
+            $namespace,
+            $name,
+            $rules
         ], $stub);
 
         // Make a director if it does not exist
@@ -123,5 +124,9 @@ class RequestBuilderService extends AllGenerator {
             $rules[] = "'{$column}' => 'required'";
         }
         return implode(",\n            ", $rules);
+    }
+
+    public function getListStub(): string {
+        return File::get($this->root(self::STUB_PATH . "/$this->list_stab"));
     }
 }

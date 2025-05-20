@@ -2,14 +2,12 @@
 
 namespace Ijodkor\Dastyor\Livewire\Form;
 
+use Ijodkor\Dastyor\Services\GenerateCrud;
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
-use Ijodkor\Dastyor\Helpers\StorageManager;
-use Ijodkor\Dastyor\Services\GenerateCrud;
 
 class AdvancedCrudForm extends Form {
-    use StorageManager;
 
     #[Validate('required|string')]
     public $model = '';

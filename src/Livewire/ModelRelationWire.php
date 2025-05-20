@@ -2,23 +2,22 @@
 
 namespace Ijodkor\Dastyor\Livewire;
 
+use Ijodkor\Dastyor\Boot\Boot;
+use Ijodkor\Dastyor\Shared\Utils\EntityFinderService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
-use Ijodkor\Dastyor\Boot\Boot;
-use Ijodkor\Dastyor\Helpers\StorageManager;
-use Ijodkor\Dastyor\Shared\Utils\EntityFinderService;
 
 class ModelRelationWire extends BuilderWire {
-    use StorageManager;
 
     public string $namespace;
     public string $group = '.php';
     public array $meta = [
         'description' => "Model bog\u{2018}lanishlari"
     ];
+
     public array $relationships = [];
     public string $relationStub = 'model.relation.stub';
     public array $belongsToOptions = [

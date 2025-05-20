@@ -2,7 +2,7 @@
 
 namespace Ijodkor\Dastyor\Container;
 
-interface IGenerator {
+interface IBuilderService {
 
     function resolvePath(?string $namespace);
 }

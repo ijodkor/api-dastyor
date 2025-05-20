@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 
 class GenerateCrud extends AllGenerator {
 
-    public function __construct() {
+    public function __construct(private readonly RequestBuilderService $request) {
         $this->stab = 'advanced-api-controller.stub';
         $this->list_stab = 'list-request.stub';
         $this->group = ".php";
@@ -16,7 +16,7 @@ class GenerateCrud extends AllGenerator {
         $this->stab = ((intval($form['crudType']) === 1) ? 'advanced-api-controller.stub' : 'advanced-controller.stub');
 
         $stub = $this->getStub();
-        $listStub = $this->getListStub();
+        $listStub = $this->request->getListStub();
         $modelName = Str::afterLast($form['model'], '\\');
         $modelInfo = ['name' => $modelName, 'namespace' => $form['model']];
         $namespace = Str::beforeLast(($form['controllerPrefix'] . $form['controllerName']), '\\');
