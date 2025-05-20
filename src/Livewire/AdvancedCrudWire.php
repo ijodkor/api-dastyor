@@ -6,7 +6,7 @@ namespace Ijodkor\Dastyor\Livewire;
 use Ijodkor\Dastyor\Livewire\Form\AdvancedCrudForm;
 use Ijodkor\Dastyor\Services\GenerateCrud;
 
-class AdvancedCrudWire extends GeneratorWire {
+class AdvancedCrudWire extends BuilderWire {
 
     public AdvancedCrudForm $form;
 

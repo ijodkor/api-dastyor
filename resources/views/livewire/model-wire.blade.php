@@ -19,14 +19,15 @@
 
             <div class="mb-3">
                 <label for="name" class="form-label">Nomi (ort qo&#8216;shimchasiz)</label>
-                <input type="text" name="name" id="name" class="form-control" value="{{ $convertedName }}"/>
+                <input type="text" name="name" id="name" class="form-control" value="{{ $name }}"/>
             </div>
 
             <label class="form-label" for="package">Papka (Namespace)</label>
             <div class="input-group mb-3">
                 <span class="input-group-text bg-light" id="">App\Models\</span>
                 <input type="text" name="package" id="package" wire:model="package" wire:keyup="change"
-                       class="form-control" placeholder="Nomi" aria-describedby="basic">
+                       class="form-control" placeholder="Nomi" aria-describedby="basic"
+                       autocomplete="off">
             </div>
 
             <!-- Namespace -->

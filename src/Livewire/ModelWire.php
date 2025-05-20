@@ -9,10 +9,10 @@ use Ijodkor\Dastyor\Boot\Boot;
 use Ijodkor\Dastyor\Shared\Utils\EntityFinderService;
 use Ijodkor\Dastyor\Shared\Utils\TableFinderService;
 
-class ModelWire extends GeneratorWire {
+class ModelWire extends BuilderWire {
 
     public string $tableName;
-    public string $convertedName;
+    public string $name;
     public Collection $tables;
 
     public array $meta = [
@@ -31,14 +31,13 @@ class ModelWire extends GeneratorWire {
 
     public function choose(): void {
         if (!isset($this->tableName)) {
-            $this->convertedName = "";
+            $this->name = "";
             return;
         }
 
-        $string = Str::replace('_', ' ', $this->tableName);
-        $string = ucwords($string);
-        $string = Str::replace(' ', '', $string);
-        $this->convertedName = Str::singular($string);
+        $migration = Str::replace('_', ' ', $this->tableName);
+        $string = Str::replace(' ', '', ucwords($migration));
+        $this->name = Str::singular($string);
     }
 
     public function render(): View {

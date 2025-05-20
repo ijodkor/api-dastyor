@@ -12,7 +12,7 @@ use Ijodkor\Dastyor\Shared\Utils\EntityFinderService;
 use Ijodkor\Dastyor\Shared\Utils\TableFinderService;
 
 
-class MigrationWire extends GeneratorWire {
+class MigrationWire extends BuilderWire {
 
     public array $meta = [
         'description' => "Jadval yaratuvchi",

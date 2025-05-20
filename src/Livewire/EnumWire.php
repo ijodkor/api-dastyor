@@ -5,7 +5,7 @@ namespace Ijodkor\Dastyor\Livewire;
 use Illuminate\Contracts\View\View;
 use Ijodkor\Dastyor\Boot\Boot;
 
-class EnumWire extends GeneratorWire {
+class EnumWire extends BuilderWire {
 
     public array $meta = [
         'description' => "Enum yaratuvchi",

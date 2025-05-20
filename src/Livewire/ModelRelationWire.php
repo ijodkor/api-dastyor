@@ -11,13 +11,13 @@ use Ijodkor\Dastyor\Boot\Boot;
 use Ijodkor\Dastyor\Helpers\StorageManager;
 use Ijodkor\Dastyor\Shared\Utils\EntityFinderService;
 
-class ModelRelationWire extends GeneratorWire {
+class ModelRelationWire extends BuilderWire {
     use StorageManager;
 
     public string $namespace;
     public string $group = '.php';
     public array $meta = [
-        'description' => "Model relationships"
+        'description' => "Model bog\u{2018}lanishlari"
     ];
     public array $relationships = [];
     public string $relationStub = 'model.relation.stub';

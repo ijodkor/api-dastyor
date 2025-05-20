@@ -2,7 +2,7 @@
 
 namespace Ijodkor\Dastyor\Livewire;
 
-class ServiceWire extends GeneratorWire {
+class ServiceWire extends BuilderWire {
 
     // Props
     public array $meta = [

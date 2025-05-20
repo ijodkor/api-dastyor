@@ -2,12 +2,12 @@
 
 namespace Ijodkor\Dastyor\Livewire;
 
-class RequestWire extends GeneratorWire {
+class RequestWire extends BuilderWire {
 
     // Props
     public array $meta = [
-            'description' => "Request yaratuvchi",
-            'route' => "requests.store"
+        'description' => "So\u{2018}rov tutuvchi yaratuvchi\r(Request)",
+        'route' => "requests.store"
     ];
 
     public string $prefix = "App\Http\Requests\\";
