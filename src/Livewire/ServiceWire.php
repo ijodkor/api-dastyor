@@ -7,7 +7,7 @@ class ServiceWire extends GeneratorWire {
     // Props
     public array $meta = [
         'description' => "Servis yaratuvchi",
-        'route' => "service.store"
+        'route' => "services.store"
     ];
 
     public string $prefix = "App\Services\\";
