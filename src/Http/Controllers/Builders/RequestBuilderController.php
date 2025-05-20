@@ -24,9 +24,9 @@ class RequestBuilderController extends Controller {
             $namespace = Arr::get($data, 'namespace');
 
             /** Request create **/
-            $this->service->generateCreate($model, $name, $namespace);
+            $this->service->creating($model, $name, $namespace);
             /** Request update **/
-            $this->service->generateUpdate($model, $name, $namespace);
+            $this->service->updating($model, $name, $namespace);
 
             /** Request list **/
             if ($hasFilter) {

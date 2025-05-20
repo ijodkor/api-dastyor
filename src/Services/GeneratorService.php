@@ -39,9 +39,9 @@ class GeneratorService {
         $requestNamespace = Arr::get($data, 'request_namespace');
 
         /** Request create **/
-        $this->request->generateCreate($tableName, $requestName, $requestNamespace);
+        $this->request->creating($tableName, $requestName, $requestNamespace);
         /** Request update **/
-        $this->request->generateUpdate($tableName, $requestName, $requestNamespace);
+        $this->request->updating($tableName, $requestName, $requestNamespace);
 
         /** Request list **/
         $this->request->generateList($tableName, $requestName, $requestNamespace);

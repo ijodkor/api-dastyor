@@ -134,7 +134,7 @@ class GenerateCrud extends AllGenerator {
             $useCreateRequest = 'use ' . $form['createRequestPrefix'] . Str::beforeLast($form['createRequestName'], '\\') . '\\' . $createRequest . ';';
 
             $generator = new RequestBuilderService();
-            $generator->generateCreate(
+            $generator->creating(
                 $modelInfo,
                 Str::afterLast($form['createRequestName'], '\\'),
                 $form['createRequestPrefix'] . Str::beforeLast($form['createRequestName'], '\\')
@@ -159,7 +159,7 @@ class GenerateCrud extends AllGenerator {
             $useUpdateRequest = 'use ' . $form['updateRequestPrefix'] . Str::beforeLast($form['updateRequestName'], '\\') . '\\' . $updateRequest . ';';
 
             $generator = new RequestBuilderService();
-            $generator->generateUpdate(
+            $generator->updating(
                 $modelInfo,
                 Str::afterLast($form['updateRequestName'], '\\'),
                 $form['updateRequestPrefix'] . Str::beforeLast($form['updateRequestName'], '\\')
