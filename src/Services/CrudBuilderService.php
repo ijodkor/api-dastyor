@@ -2,35 +2,54 @@
 
 namespace Ijodkor\Dastyor\Services;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
-class GenerateCrud extends AllGenerator {
+class CrudBuilderService extends AllGenerator {
 
-    public function __construct(private readonly RequestBuilderService $request) {
+    public function __construct(
+        private readonly RequestBuilderService $request,
+        private readonly ServiceBuilder        $serviceBuilder
+    ) {
         $this->stab = 'advanced-api-controller.stub';
         $this->list_stab = 'list-request.stub';
         $this->group = ".php";
     }
 
     public function create(array $form): void {
-        $this->stab = ((intval($form['crudType']) === 1) ? 'advanced-api-controller.stub' : 'advanced-controller.stub');
-
+        $this->stab = Arr::get($form, 'crudType') == 1 ? 'advanced-api-controller.stub' : 'advanced-controller.stub';
         $stub = $this->getStub();
-        $listStub = $this->request->getListStub();
-        $modelName = Str::afterLast($form['model'], '\\');
-        $modelInfo = ['name' => $modelName, 'namespace' => $form['model']];
+
+        // Model
+        $model = [
+            'name' => Str::afterLast($form['model'], '\\'),
+            'namespace' => $form['model']
+        ];
+
+        // Controller
         $namespace = Str::beforeLast(($form['controllerPrefix'] . $form['controllerName']), '\\');
-        $controllerName = Str::afterLast($form['controllerName'], '\\') . $form['controllerSuffix'];
+        $name = Str::afterLast($form['controllerName'], '\\') . $form['controllerSuffix'];
 
+        // Service
+        $srvName = Arr::get($form, 'service.name');
+        $service = [
+            'name' => Str::afterLast($srvName, '\\') . Arr::get($form, 'service.suffix'),
+            'namespace' => Str::beforeLast($srvName, '\\') . '\\' . $srvName
+            // $form['servicePrefix'] . Str::beforeLast($form['serviceName'], '\\')
+        ];
+
+        $listStub = $this->request->getListStub();
         if ($form['isListRequest']) {
-            $this->request($form, $modelInfo, $listStub);
+            $this->request($form, $model, $listStub);
         }
-        $this->requestCreate($form, $modelInfo, $stub);
-        $this->requestUpdate($form, $modelInfo, $stub);
-        $this->service($form, $modelInfo, $stub);
-        $this->resource($form, $modelInfo, $stub);
+        $this->requestCreate($form, $model, $stub);
+        $this->requestUpdate($form, $model, $stub);
 
-        $modelNameSingular = Str::lcfirst($modelName);
+        $this->serviceBuilder->generate($model, $service['name'], $service['namespace']);
+
+        $this->resource($form, $model, $stub);
+
+        $modelNameSingular = Str::lcfirst($model['name']);
         $modelNamePlural = Str::plural($modelNameSingular);
         $modelKebabName = Str::kebab($modelNamePlural);
 
@@ -42,43 +61,27 @@ class GenerateCrud extends AllGenerator {
             '{{ modelNamePlural }}',
             '{{ modelNameSingular }}',
             '{{ modelKebabName }}',
-            '{{ modelNameSpace }}'
+            '{{ modelNameSpace }}',
+            '{{ serviceName }}',
+            '{{ useService }}'
         ], [
             $namespace,
-            $controllerName,
+            $name,
             $form['baseController'],
-            $modelName,
+            $model['name'],
             $modelNamePlural,
             $modelNameSingular,
             $modelKebabName,
-            $form['model']
+            $form['model'],
+            $service['name'],
+            $service['namespace'],
         ], $stub);
 
         // Make a director if it does not exist
         $location = $this->resolvePath($namespace);
 
         // Make ready boilerplate as Service $namespace/$controllerName
-        $this->make($location, $controllerName, $stub);
-    }
-
-    private function service(array $form, array $modelInfo, &$stub): void {
-        $serviceName = Str::afterLast($form['serviceName'], '\\') . $form['serviceSuffix'];
-        $useService = Str::beforeLast($form['serviceName'], '\\') . '\\' . $serviceName;
-
-        $stub = str_replace([
-            '{{ serviceName }}',
-            '{{ useService }}'
-        ], [
-            $serviceName,
-            $useService
-        ], $stub);
-
-        $generator = new ServiceBuilder();
-        $generator->generate(
-            $modelInfo,
-            Str::afterLast($form['serviceName'], '\\'),
-            $form['servicePrefix'] . Str::beforeLast($form['serviceName'], '\\')
-        );
+        $this->make($location, $name, $stub);
     }
 
     private function resource(array $form, array $modelInfo, &$stub): void {

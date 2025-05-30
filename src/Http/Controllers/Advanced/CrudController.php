@@ -14,7 +14,7 @@ class CrudController extends Controller {
     }
 
     public function create(): View {
-        return view('generator::advanced.crud.create');
+        return view('generator::crud.create');
     }
 
     public function store(CrudRequest $request) {

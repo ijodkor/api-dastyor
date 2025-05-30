@@ -11,8 +11,7 @@ class GeneratorService {
         private readonly ResourceBuilderService   $resource,
         private readonly RequestBuilderService    $request,
         private readonly RouteBuilderService      $route,
-        private readonly ControllerBuilderService $controller,
-        private readonly GenerateCrud             $crud
+        private readonly ControllerBuilderService $controller
     ) {
     }
 
@@ -56,7 +55,5 @@ class GeneratorService {
     }
 
     public function crud(array $attributes): void {
-        /** Crud **/
-        $this->crud->create($attributes);
     }
 }

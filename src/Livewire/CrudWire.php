@@ -3,20 +3,21 @@
 namespace Ijodkor\Dastyor\Livewire;
 
 
-use Ijodkor\Dastyor\Livewire\Form\AdvancedCrudForm;
-use Ijodkor\Dastyor\Services\GenerateCrud;
+use Ijodkor\Dastyor\Livewire\Form\CrudForm;
+use Ijodkor\Dastyor\Services\CrudBuilderService;
+use Illuminate\Validation\ValidationException;
 
-class AdvancedCrudWire extends BuilderWire {
+class CrudWire extends BuilderWire {
 
-    public AdvancedCrudForm $form;
+    public CrudForm $form;
 
     // Props
     public array $meta = [
-        'description' => "Crud yaratuvchi",
+        'description' => "CRUD yaratuvchi",
         'route' => "advanced.crud.store"
     ];
 
-    protected string $view = "livewire.advanced-crud";
+    protected string $view = "livewire.crud";
 
 
     public function modelChoose(): void {
@@ -30,15 +31,30 @@ class AdvancedCrudWire extends BuilderWire {
         $this->form->listRequestName = $path;
         $this->form->createRequestName = $path;
         $this->form->updateRequestName = $path;
-        $this->form->serviceName = $path;
+        $this->form->service = [
+            'name' => $path,
+        ];
+
         $this->form->resourceName = $path;
     }
 
+    /**
+     * @throws ValidationException
+     */
     public function preview(): void {
         $this->form->validate();
     }
 
-    public function save(GenerateCrud $service) {
-        $this->form->store($service);
+    /**
+     * @throws ValidationException
+     */
+    public function save(CrudBuilderService $service): void {
+        try {
+            $this->form->validate();
+        } catch (\Exception $exception) {
+            dd($exception);
+        }
+
+        $service->create($this->form->all());
     }
 }

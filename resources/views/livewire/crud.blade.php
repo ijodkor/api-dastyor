@@ -125,11 +125,11 @@
                 <label class="form-label" for="name">Service Name</label>
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-light">{{ $form->servicePrefix }}</span>
-                    <input type="text" wire:model="form.serviceName" class="form-control" autocomplete="off">
+                    <input type="text" wire:model="form.service.name" class="form-control" autocomplete="off">
                     <span class="input-group-text bg-light">{{ $form->serviceSuffix }}</span>
                 </div>
 
-                @error('form.serviceName')
+                @error('form.service[name]')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use Ijodkor\Dastyor\Boot\Boot;
-use Ijodkor\Dastyor\Livewire\AdvancedCrudWire;
+use Ijodkor\Dastyor\Livewire\CrudWire;
 use Ijodkor\Dastyor\Livewire\ControllerWire;
 use Ijodkor\Dastyor\Livewire\EnumWire;
 use Ijodkor\Dastyor\Livewire\MethodWire;
@@ -127,7 +127,7 @@ class AssistantServiceProvider extends ServiceProvider {
         Livewire::component(Boot::getWire("service-wire"), ServiceWire::class);
         Livewire::component(Boot::getWire("resource-wire"), ResourceWire::class);
         Livewire::component(Boot::getWire("model-relation-wire"), ModelRelationWire::class);
-        Livewire::component(Boot::getWire("advanced-crud-wire"), AdvancedCrudWire::class);
+        Livewire::component(Boot::getWire("crud-wire"), CrudWire::class);
         Livewire::component(Boot::getWire("migration-wire"), MigrationWire::class);
         Livewire::component(Boot::getWire("enum-wire"), EnumWire::class);
     }

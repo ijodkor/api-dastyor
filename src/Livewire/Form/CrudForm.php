@@ -7,7 +7,7 @@ use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
-class AdvancedCrudForm extends Form {
+class CrudForm extends Form {
 
     #[Validate('required|string')]
     public $model = '';
@@ -68,8 +68,10 @@ class AdvancedCrudForm extends Form {
     #[Validate('required|string')]
     public $servicePrefix = 'App\Services\\';
 
-    #[Validate('required|string')]
-    public $serviceName = '';
+    #[Validate('required|array')]
+    public $service = [
+        'name' => ''
+    ];
 
     #[Validate('required|string')]
     public $serviceSuffix = 'Service';
