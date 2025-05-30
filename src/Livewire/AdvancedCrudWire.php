@@ -27,6 +27,7 @@ class AdvancedCrudWire extends BuilderWire {
         $path = $model ? ($model->folder ? $model->folder . $model->name : $model->name) : '';
 
         $this->form->controllerName = $path;
+        $this->form->listRequestName = $path;
         $this->form->createRequestName = $path;
         $this->form->updateRequestName = $path;
         $this->form->serviceName = $path;

@@ -11,7 +11,8 @@ class {{ name }}Service {
 
     public function all(array $params = []): LengthAwarePaginator {
         $limit = Arr::get($params, 'limit', 20);
-        return {{ modelName }}::query()->paginate($limit);
+        return {{ modelName }}::query()
+            ->paginate($limit);
     }
 
     public function create(array $data): Model|{{ modelName }} {
