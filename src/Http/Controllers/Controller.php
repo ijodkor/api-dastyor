@@ -1,6 +1,6 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Http\Controllers;
+namespace Ijodkor\Dastyor\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 

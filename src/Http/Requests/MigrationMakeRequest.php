@@ -1,6 +1,6 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Http\Requests;
+namespace Ijodkor\Dastyor\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

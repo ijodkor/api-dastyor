@@ -1,31 +1,55 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Services;
+namespace Ijodkor\Dastyor\Services;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
-class GenerateCrud extends AllGenerator {
+class CrudBuilderService extends AllGenerator {
 
-    public function __construct() {
+    public function __construct(
+        private readonly RequestBuilderService $request,
+        private readonly ServiceBuilder        $serviceBuilder
+    ) {
         $this->stab = 'advanced-api-controller.stub';
+        $this->list_stab = 'list-request.stub';
         $this->group = ".php";
     }
 
-    public function generate(array $form): void {
-        $this->stab = ((intval($form['crudType']) === 1) ? 'advanced-api-controller.stub' : 'advanced-controller.stub');
-
+    public function create(array $form): void {
+        $this->stab = Arr::get($form, 'crudType') == 1 ? 'advanced-api-controller.stub' : 'advanced-controller.stub';
         $stub = $this->getStub();
-        $modelName = Str::afterLast($form['model'], '\\');
-        $modelInfo = ['name' => $modelName, 'namespace' => $form['model']];
+
+        // Model
+        $model = [
+            'name' => Str::afterLast($form['model'], '\\'),
+            'namespace' => $form['model']
+        ];
+
+        // Controller
         $namespace = Str::beforeLast(($form['controllerPrefix'] . $form['controllerName']), '\\');
-        $controllerName = Str::afterLast($form['controllerName'], '\\') . $form['controllerSuffix'];
+        $name = Str::afterLast($form['controllerName'], '\\') . $form['controllerSuffix'];
 
-        $this->requestCreateGenerate($form, $modelInfo, $stub);
-        $this->requestUpdateGenerate($form, $modelInfo, $stub);
-        $this->serviceGenerate($form, $modelInfo, $stub);
-        $this->resourceGenerate($form, $modelInfo, $stub);
+        // Service
+        $srvName = Arr::get($form, 'service.name');
+        $service = [
+            'name' => Str::afterLast($srvName, '\\') . Arr::get($form, 'service.suffix'),
+            'namespace' => Str::beforeLast($srvName, '\\') . '\\' . $srvName
+            // $form['servicePrefix'] . Str::beforeLast($form['serviceName'], '\\')
+        ];
 
-        $modelNameSingular = Str::lcfirst($modelName);
+        $listStub = $this->request->getListStub();
+        if ($form['isListRequest']) {
+            $this->request($form, $model, $listStub);
+        }
+        $this->requestCreate($form, $model, $stub);
+        $this->requestUpdate($form, $model, $stub);
+
+        $this->serviceBuilder->generate($model, $service['name'], $service['namespace']);
+
+        $this->resource($form, $model, $stub);
+
+        $modelNameSingular = Str::lcfirst($model['name']);
         $modelNamePlural = Str::plural($modelNameSingular);
         $modelKebabName = Str::kebab($modelNamePlural);
 
@@ -37,46 +61,30 @@ class GenerateCrud extends AllGenerator {
             '{{ modelNamePlural }}',
             '{{ modelNameSingular }}',
             '{{ modelKebabName }}',
-            '{{ modelNameSpace }}'
+            '{{ modelNameSpace }}',
+            '{{ serviceName }}',
+            '{{ useService }}'
         ], [
             $namespace,
-            $controllerName,
+            $name,
             $form['baseController'],
-            $modelName,
+            $model['name'],
             $modelNamePlural,
             $modelNameSingular,
             $modelKebabName,
-            $form['model']
+            $form['model'],
+            $service['name'],
+            $service['namespace'],
         ], $stub);
 
         // Make a director if it does not exist
         $location = $this->resolvePath($namespace);
 
         // Make ready boilerplate as Service $namespace/$controllerName
-        $this->make($location, $controllerName, $stub);
+        $this->make($location, $name, $stub);
     }
 
-    private function serviceGenerate(array $form, array $modelInfo, &$stub): void {
-        $serviceName = Str::afterLast($form['serviceName'], '\\') . $form['serviceSuffix'];
-        $useService = Str::beforeLast($form['serviceName'], '\\') . '\\' . $serviceName;
-
-        $stub = str_replace([
-            '{{ serviceName }}',
-            '{{ useService }}'
-        ], [
-            $serviceName,
-            $useService
-        ], $stub);
-
-        $generator = new ServiceGenerator();
-        $generator->generate(
-            $modelInfo,
-            Str::afterLast($form['serviceName'], '\\'),
-            $form['servicePrefix'] . Str::beforeLast($form['serviceName'], '\\')
-        );
-    }
-
-    private function resourceGenerate(array $form, array $modelInfo, &$stub): void {
+    private function resource(array $form, array $modelInfo, &$stub): void {
         if (intval($form['crudType']) === 1) {
             $resourceName = Str::afterLast($form['resourceName'], '\\') . $form['resourceSuffix'];
             $useResource = Str::beforeLast($form['resourceName'], '\\') . '\\' . $resourceName;
@@ -89,7 +97,7 @@ class GenerateCrud extends AllGenerator {
                 $useResource
             ], $stub);
 
-            $generator = new GenerateResource();
+            $generator = new ResourceBuilderService();
             $generator->generate(
                 $modelInfo,
                 Str::afterLast($form['resourceName'], '\\'),
@@ -98,13 +106,38 @@ class GenerateCrud extends AllGenerator {
         }
     }
 
-    private function requestCreateGenerate(array $form, array $modelInfo, &$stub): void {
+    private function request(array $form, array $modelInfo, &$stub): void {
+        if ($form['isListRequest']) {
+            $listRequest = (Str::afterLast($form['listRequestName'], '\\') . $form['listRequestSuffix']);
+            $useListRequest = 'use ' . $form['listRequestPrefix'] . Str::beforeLast($form['listRequestName'], '\\') . '\\' . $listRequest . ';';
+
+            $generator = new RequestBuilderService();
+            $generator->generateList(
+                $modelInfo,
+                Str::afterLast($form['listRequestName'], '\\'),
+                $form['listRequestPrefix'] . Str::beforeLast($form['listRequestName'], '\\')
+            );
+        } else {
+            $listRequest = 'Request';
+            $useListRequest = '';
+        }
+
+        $stub = str_replace([
+            '{{ createRequest }}',
+            '{{ useCreateRequest }}'
+        ], [
+            $listRequest,
+            $useListRequest
+        ], $stub);
+    }
+
+    private function requestCreate(array $form, array $modelInfo, &$stub): void {
         if ($form['isCreateRequest']) {
             $createRequest = (Str::afterLast($form['createRequestName'], '\\') . $form['createRequestSuffix']);
             $useCreateRequest = 'use ' . $form['createRequestPrefix'] . Str::beforeLast($form['createRequestName'], '\\') . '\\' . $createRequest . ';';
 
-            $generator = new GenerateRequest();
-            $generator->generateCreate(
+            $generator = new RequestBuilderService();
+            $generator->creating(
                 $modelInfo,
                 Str::afterLast($form['createRequestName'], '\\'),
                 $form['createRequestPrefix'] . Str::beforeLast($form['createRequestName'], '\\')
@@ -123,13 +156,13 @@ class GenerateCrud extends AllGenerator {
         ], $stub);
     }
 
-    private function requestUpdateGenerate(array $form, array $modelInfo, &$stub): void {
+    private function requestUpdate(array $form, array $modelInfo, &$stub): void {
         if ($form['isUpdateRequest']) {
             $updateRequest = Str::afterLast($form['updateRequestName'], '\\') . $form['updateRequestSuffix'];
             $useUpdateRequest = 'use ' . $form['updateRequestPrefix'] . Str::beforeLast($form['updateRequestName'], '\\') . '\\' . $updateRequest . ';';
 
-            $generator = new GenerateRequest();
-            $generator->generateUpdate(
+            $generator = new RequestBuilderService();
+            $generator->updating(
                 $modelInfo,
                 Str::afterLast($form['updateRequestName'], '\\'),
                 $form['updateRequestPrefix'] . Str::beforeLast($form['updateRequestName'], '\\')

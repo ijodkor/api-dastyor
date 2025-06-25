@@ -1,6 +1,6 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Http\Requests;
+namespace Ijodkor\Dastyor\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -26,6 +26,7 @@ class CrudRequest extends FormRequest {
             'request.update_prefix' => 'required|string|between:2,255',
             'request.update_name' => 'required|string|between:2,255',
             'request.update_suffix' => 'required|string|between:2,255',
+            'request.list_request' => 'boolean',
 
             // crud
             'crud.type' => 'required|integer',

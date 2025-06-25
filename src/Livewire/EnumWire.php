@@ -1,15 +1,11 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Livewire;
+namespace Ijodkor\Dastyor\Livewire;
 
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Str;
-use Uzinfocom\Dastyor\Boot\Boot;
-use Uzinfocom\Dastyor\Services\Utils\EntityFinderService;
-use Uzinfocom\Dastyor\Services\Utils\TableFinderService;
+use Ijodkor\Dastyor\Boot\Boot;
 
-class EnumWire extends GeneratorWire {
+class EnumWire extends BuilderWire {
 
     public array $meta = [
         'description' => "Enum yaratuvchi",

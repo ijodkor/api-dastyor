@@ -1,6 +1,6 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Models;
+namespace Ijodkor\Dastyor\Models;
 
 
 use Illuminate\Database\Eloquent\Model;

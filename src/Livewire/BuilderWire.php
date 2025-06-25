@@ -1,22 +1,22 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Livewire;
+namespace Ijodkor\Dastyor\Livewire;
 
-use Uzinfocom\Dastyor\Boot\Boot;
-use Uzinfocom\Dastyor\Services\Utils\EntityFinderService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use Ijodkor\Dastyor\Boot\Boot;
+use Ijodkor\Dastyor\Shared\Utils\EntityFinderService;
 
-class GeneratorWire extends Component {
+class BuilderWire extends Component {
 
     // Props
     public array $meta = [
-        'description' => "Servis yaratuvchi",
-        'route' => "services.store"
+        'description' => "Yaratuvchi",
+        'route' => "*.store"
     ];
-    protected string $view = "livewire.generator";
+    protected string $view = "livewire.builder";
 
     public string $modelNamespace = "";
     public string $modelName = "";
@@ -65,15 +65,6 @@ class GeneratorWire extends Component {
                 'name' => $name,
                 'folder' => $folder,
                 'namespace' => $model
-            ];
-        });
-    }
-
-    public function getControllers(EntityFinderService $controllerFinder): Collection {
-        return collect($controllerFinder->getControllers(app_path()))->map(function($controller) {
-            return (object)[
-                'name' => Str::afterLast($controller, "\\"),
-                'namespace' => $controller
             ];
         });
     }

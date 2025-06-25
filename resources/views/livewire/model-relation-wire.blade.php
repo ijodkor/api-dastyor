@@ -12,15 +12,12 @@
         <form wire:submit.prevent="submit">
             @csrf
             <div class="mb-3">
-                <label class="form-label" for="namespace">Models</label>
-                <select
-                    name="namespace"
-                    id="namespace"
-                    wire:model="namespace"
-                    wire:change="selectModel()"
-                    class="form-select"
-                >
-                    <option value="">Select Model</option>
+                <label class="form-label" for="namespace">Model</label>
+                <select name="namespace" id="namespace"
+                        wire:model="namespace"
+                        wire:change="selectModel()"
+                        class="form-select">
+                    <option value="">Modelni tanlang</option>
                     @foreach($models as $model)
                         <option value="{{ $model->namespace }}">
                             {{ $model->name }} ({{ $model->namespace }})
@@ -84,7 +81,7 @@
                                                         wire:model="relationships.{{$key}}.relation_type"
                                                         class="form-select"
                                                     >
-                                                        @if($relationship['type'] === \Uzinfocom\Dastyor\Livewire\ModelRelationWire::RELATION_TYPE_BELONGS)
+                                                        @if($relationship['type'] === \Ijodkor\Dastyor\Livewire\ModelRelationWire::RELATION_TYPE_BELONGS)
                                                             @foreach($belongsToOptions as $belongsToOption)
                                                                 <option value="{{$belongsToOption['key']}}">
                                                                     <span>{{$belongsToOption['value']}}</span>

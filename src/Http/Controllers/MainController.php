@@ -1,9 +1,9 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Http\Controllers;
+namespace Ijodkor\Dastyor\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
-use Uzinfocom\Dastyor\Boot\Boot;
+use Ijodkor\Dastyor\Boot\Boot;
 
 class MainController extends Controller {
 

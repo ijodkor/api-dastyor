@@ -1,6 +1,6 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Http\Requests;
+namespace Ijodkor\Dastyor\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -12,10 +12,11 @@ class GeneratorRequest extends FormRequest {
 
     public function rules(): array {
         return [
-            'model.name' => 'required|string|between:2,255',
-            'model.namespace' => 'required|string|between:2,255',
-            'name' => 'required|string|between:2,255',
-            'namespace' => ''
+                'model.name' => 'required|string|between:2,255',
+                'model.namespace' => 'required|string|between:2,255',
+                'name' => 'required|string|between:2,255',
+                'namespace' => '',
+                'list_request' => 'boolean',
         ];
     }
 }

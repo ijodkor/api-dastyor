@@ -1,8 +1,8 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Livewire;
+namespace Ijodkor\Dastyor\Livewire;
 
-class ControllerWire extends GeneratorWire {
+class ControllerWire extends BuilderWire {
 
     // Props
     public array $meta = [

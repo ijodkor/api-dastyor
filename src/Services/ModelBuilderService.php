@@ -1,10 +1,10 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Services;
+namespace Ijodkor\Dastyor\Services;
 
 use Illuminate\Support\Facades\Schema;
 
-class GenerateModel extends AllGenerator {
+class ModelBuilderService extends AllGenerator {
 
     public function __construct() {
         $this->stab = 'model.stub';

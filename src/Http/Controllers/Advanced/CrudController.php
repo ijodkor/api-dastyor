@@ -1,30 +1,28 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Http\Controllers\Advanced;
+namespace Ijodkor\Dastyor\Http\Controllers\Advanced;
 
 use Exception;
-use Uzinfocom\Dastyor\Http\Requests\CrudRequest;
-use Uzinfocom\Dastyor\Services\Generator;
-use Uzinfocom\Dastyor\Http\Controllers\Controller;
-use Uzinfocom\Dastyor\Http\Requests\GeneratorRequest;
+use Illuminate\Contracts\View\View;
+use Ijodkor\Dastyor\Http\Controllers\Controller;
+use Ijodkor\Dastyor\Http\Requests\CrudRequest;
+use Ijodkor\Dastyor\Services\GeneratorService;
 
 class CrudController extends Controller {
 
-    public function __construct(private readonly Generator $generator) {
+    public function __construct(private readonly GeneratorService $service) {
     }
 
-    public function create() {
-        return view('generator::advanced.crud.create');
+    public function create(): View {
+        return view('generator::crud.create');
     }
 
     public function store(CrudRequest $request) {
         try {
-            $this->generator->generateCrud($request->validated());
+            $this->service->crud($request->validated());
             return redirect()->back();
-        } catch (Exception $exception) {
-            dd($exception->getMessage());
+        } catch (Exception $ex) {
+            return redirect()->back()->with('msg', $ex->getMessage());
         }
     }
-
-
 }

@@ -1,0 +1,17 @@
+<?php
+
+namespace {{ namespace }};
+
+use Ijodkor\ApiResponse\Requests\RestRequest;
+use Ijodkor\ApiResponse\Requests\PaginationRequest;
+
+class {{ name }}Request extends PaginationRequest {
+
+    public function authorize(): bool {
+        return true;
+    }
+
+    public function rules(): array {
+        return [];
+    }
+}

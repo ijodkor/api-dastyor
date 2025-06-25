@@ -1,16 +1,16 @@
 <?php
 
-use Uzinfocom\Dastyor\Http\Controllers\Advanced\CrudController;
-use Uzinfocom\Dastyor\Http\Controllers\Builders\MigrationBuilderController;
-use Uzinfocom\Dastyor\Http\Controllers\Generator\ControllerGenerateController;
-use Uzinfocom\Dastyor\Http\Controllers\Generator\EnumGenerateController;
-use Uzinfocom\Dastyor\Http\Controllers\Generator\MethodGenerateController;
-use Uzinfocom\Dastyor\Http\Controllers\Generator\ModelGenerateController;
-use Uzinfocom\Dastyor\Http\Controllers\Generator\RequestGenerateController;
-use Uzinfocom\Dastyor\Http\Controllers\Generator\ResourceGenerateController;
-use Uzinfocom\Dastyor\Http\Controllers\Generator\ServiceGenerateController;
-use Uzinfocom\Dastyor\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
+use Ijodkor\Dastyor\Http\Controllers\Advanced\CrudController;
+use Ijodkor\Dastyor\Http\Controllers\Builders\EnumBuilderController;
+use Ijodkor\Dastyor\Http\Controllers\Builders\MigrationBuilderController;
+use Ijodkor\Dastyor\Http\Controllers\Builders\ModelBuilderController;
+use Ijodkor\Dastyor\Http\Controllers\Builders\RequestBuilderController;
+use Ijodkor\Dastyor\Http\Controllers\Builders\ResourceBuilderController;
+use Ijodkor\Dastyor\Http\Controllers\ControllerBuilderController;
+use Ijodkor\Dastyor\Http\Controllers\MainController;
+use Ijodkor\Dastyor\Http\Controllers\MethodBuilderController;
+use Ijodkor\Dastyor\Http\Controllers\ServiceBuilderController;
 
 Route::get('/', MainController::class)->name('generator.index');
 
@@ -19,14 +19,14 @@ Route::prefix('/advanced')->as('advanced.')->group(function() {
     Route::post('crud', [CrudController::class, 'store'])->name('crud.store');
 });
 
-Route::prefix('/generate')->group(function() {
-    Route::post('models', ModelGenerateController::class)->name('models.store');
-    Route::post('services', ServiceGenerateController::class)->name('service.store');
-    Route::post('requests', RequestGenerateController::class)->name('requests.store');
-    Route::post('resources', ResourceGenerateController::class)->name('resources.store');
-    Route::post('controllers', ControllerGenerateController::class)->name('controllers.store');
-    Route::post('methods', MethodGenerateController::class)->name('methods.store');
-    Route::post('enums', EnumGenerateController::class)->name('enums.store');
+Route::prefix('/builders')->group(function() {
+    Route::post('models', ModelBuilderController::class)->name('models.store');
+    Route::post('services', ServiceBuilderController::class)->name('services.store');
+    Route::post('requests', RequestBuilderController::class)->name('requests.store');
+    Route::post('resources', ResourceBuilderController::class)->name('resources.store');
+    Route::post('controllers', ControllerBuilderController::class)->name('controllers.store');
+    Route::post('methods', MethodBuilderController::class)->name('methods.store');
+    Route::post('enums', EnumBuilderController::class)->name('enums.store');
 });
 
 // Add extra

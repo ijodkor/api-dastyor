@@ -1,22 +1,22 @@
 <?php
 
-namespace Uzinfocom\Dastyor;
+namespace Ijodkor\Dastyor;
 
 use Illuminate\Contracts\Foundation\CachesRoutes;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
-use Uzinfocom\Dastyor\Boot\Boot;
-use Uzinfocom\Dastyor\Livewire\AdvancedCrudWire;
-use Uzinfocom\Dastyor\Livewire\ControllerWire;
-use Uzinfocom\Dastyor\Livewire\EnumWire;
-use Uzinfocom\Dastyor\Livewire\MethodWire;
-use Uzinfocom\Dastyor\Livewire\MigrationWire;
-use Uzinfocom\Dastyor\Livewire\ModelRelationWire;
-use Uzinfocom\Dastyor\Livewire\ModelWire;
-use Uzinfocom\Dastyor\Livewire\RequestWire;
-use Uzinfocom\Dastyor\Livewire\ResourceWire;
-use Uzinfocom\Dastyor\Livewire\ServiceWire;
+use Ijodkor\Dastyor\Boot\Boot;
+use Ijodkor\Dastyor\Livewire\CrudWire;
+use Ijodkor\Dastyor\Livewire\ControllerWire;
+use Ijodkor\Dastyor\Livewire\EnumWire;
+use Ijodkor\Dastyor\Livewire\MethodWire;
+use Ijodkor\Dastyor\Livewire\MigrationWire;
+use Ijodkor\Dastyor\Livewire\ModelRelationWire;
+use Ijodkor\Dastyor\Livewire\ModelWire;
+use Ijodkor\Dastyor\Livewire\RequestWire;
+use Ijodkor\Dastyor\Livewire\ResourceWire;
+use Ijodkor\Dastyor\Livewire\ServiceWire;
 
 class AssistantServiceProvider extends ServiceProvider {
 
@@ -127,7 +127,7 @@ class AssistantServiceProvider extends ServiceProvider {
         Livewire::component(Boot::getWire("service-wire"), ServiceWire::class);
         Livewire::component(Boot::getWire("resource-wire"), ResourceWire::class);
         Livewire::component(Boot::getWire("model-relation-wire"), ModelRelationWire::class);
-        Livewire::component(Boot::getWire("advanced-crud-wire"), AdvancedCrudWire::class);
+        Livewire::component(Boot::getWire("crud-wire"), CrudWire::class);
         Livewire::component(Boot::getWire("migration-wire"), MigrationWire::class);
         Livewire::component(Boot::getWire("enum-wire"), EnumWire::class);
     }

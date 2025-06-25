@@ -1,11 +1,11 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Services;
+namespace Ijodkor\Dastyor\Services;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Schema;
 
-class GenerateResource extends AllGenerator {
+class ResourceBuilderService extends AllGenerator {
 
     public function __construct() {
         $this->stab = 'resource.stub';
@@ -59,7 +59,7 @@ class GenerateResource extends AllGenerator {
 
     protected function generateResourceFields($columns): string {
         $columns = array_keys($columns);
-        $columns = array_diff($columns, ['id', 'created_at', 'updated_at', 'deleted_at']);
+        $columns = array_diff($columns, ['created_at', 'updated_at', 'deleted_at']);
         $fields = [];
         foreach ($columns as $column) {
             $fields[] = "'{$column}' => \$this->{$column}";

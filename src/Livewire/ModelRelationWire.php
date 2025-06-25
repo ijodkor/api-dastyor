@@ -1,24 +1,23 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Livewire;
+namespace Ijodkor\Dastyor\Livewire;
 
+use Ijodkor\Dastyor\Boot\Boot;
+use Ijodkor\Dastyor\Shared\Utils\EntityFinderService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
-use Uzinfocom\Dastyor\Boot\Boot;
-use Uzinfocom\Dastyor\Helpers\StorageManager;
-use Uzinfocom\Dastyor\Services\Utils\EntityFinderService;
 
-class ModelRelationWire extends GeneratorWire {
-    use StorageManager;
+class ModelRelationWire extends BuilderWire {
 
     public string $namespace;
     public string $group = '.php';
     public array $meta = [
-        'description' => "Model relationships"
+        'description' => "Model bog\u{2018}lanishlari"
     ];
+
     public array $relationships = [];
     public string $relationStub = 'model.relation.stub';
     public array $belongsToOptions = [

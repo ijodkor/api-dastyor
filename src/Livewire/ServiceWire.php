@@ -1,13 +1,13 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Livewire;
+namespace Ijodkor\Dastyor\Livewire;
 
-class ServiceWire extends GeneratorWire {
+class ServiceWire extends BuilderWire {
 
     // Props
     public array $meta = [
         'description' => "Servis yaratuvchi",
-        'route' => "service.store"
+        'route' => "services.store"
     ];
 
     public string $prefix = "App\Services\\";

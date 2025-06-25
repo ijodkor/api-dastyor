@@ -1,5 +1,5 @@
-@use(Uzinfocom\Dastyor\Boot\Boot)
-    <!doctype html>
+@use(Ijodkor\Dastyor\Boot\Boot)
+<!doctype html>
 <html lang="{{ app()->getLocale() }}" class="light-style layout-navbar-fixed layout-menu-fixed layout-compact">
 <head>
     <meta charset="utf-8"/>

@@ -1,12 +1,11 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Console\Commands;
+namespace Ijodkor\Dastyor\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
-class GenerateFolders extends Command
-{
+class DirectoryGenerate extends Command {
     /**
      * The name and signature of the console command.
      *
@@ -19,21 +18,22 @@ class GenerateFolders extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Create directory description';
 
     /**
      * Execute the console command.
      */
-    public function handle(): void
-    {
+    public function handle(): void {
         $folders = [
-            'app/Services',
-            'app/Http/Requests',
-            'app/Http/Resources',
+                'app/Services',
+                'app/Http/Requests',
+                'app/Http/Resources',
         ];
+
         foreach ($folders as $folder) {
             File::makeDirectory($folder, 0777, true, true);
         }
+
         $this->info('Folders generated successfully.');
     }
 }

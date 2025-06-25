@@ -3,9 +3,9 @@
         <div
             class="footer-container d-flex align-items-center justify-content-between py-2 flex-md-row flex-column">
             <div>
-                <span>© 2024 - </span>
+                <span>&copy; 2024 - </span>
                 <script>document.write(new Date().getFullYear());</script>
-                <span> Agrosanoat majmuida axborot texnologiyalarini joriy etish va rijovlantirish bo&#8216;limi</span>
+                <span> Agrosanoat majmuida axborot tizimlarini joriy etish va rijovlantirish bo&#8216;limi</span>
                 <a href="https://uzinfocom.uz" target="_blank" class="fw-medium">Uzinfocom</a>
             </div>
             <div class="d-none d-lg-inline-block">

@@ -1,14 +1,13 @@
 <?php
 
-namespace Uzinfocom\Dastyor\Livewire\Form;
+namespace Ijodkor\Dastyor\Livewire\Form;
 
+use Ijodkor\Dastyor\Services\GenerateCrud;
+use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
-use Uzinfocom\Dastyor\Helpers\StorageManager;
-use Uzinfocom\Dastyor\Services\GenerateCrud;
 
-class AdvancedCrudForm extends Form {
-    use StorageManager;
+class CrudForm extends Form {
 
     #[Validate('required|string')]
     public $model = '';
@@ -30,8 +29,21 @@ class AdvancedCrudForm extends Form {
     #[Validate('required|boolean')]
     public $isCreateRequest = true;
 
+    #[Validate('boolean')]
+    public $isListRequest = true;
+
+
     #[Validate('required|string')]
     public $createRequestPrefix = 'App\Http\Requests\\';
+
+    #[Validate('string')]
+    public $listRequestPrefix = 'App\Http\Requests\\';
+
+    #[Validate('required|string')]
+    public $listRequestName = '';
+
+    #[Validate('string')]
+    public $listRequestSuffix = 'ListRequest';
 
     #[Validate('required|string')]
     public $createRequestName = '';
@@ -56,8 +68,10 @@ class AdvancedCrudForm extends Form {
     #[Validate('required|string')]
     public $servicePrefix = 'App\Services\\';
 
-    #[Validate('required|string')]
-    public $serviceName = '';
+    #[Validate('required|array')]
+    public $service = [
+        'name' => ''
+    ];
 
     #[Validate('required|string')]
     public $serviceSuffix = 'Service';
@@ -77,9 +91,11 @@ class AdvancedCrudForm extends Form {
     public $crudType = 1;
 
 
+    /**
+     * @throws ValidationException
+     */
     public function store(GenerateCrud $service): void {
         $this->validate();
-
-        $service->generate($this->all());
+        $service->create($this->all());
     }
 }
