@@ -31,6 +31,11 @@ php artisan vendor:publish --provider="Ijodkor\Dastyor\AssistantServiceProvider"
 
 2. ``/dastyor`` Manziliga o&#8216;tiladi.
 
+![image](./docs/migration.png)
+![image](./docs/tools.png)
+
+
+
 ## Foydalanilgan manbalar (References)
 
 - [Testbench](https://packages.tools/testbench) Laravel Testing Helper for Packages Development
