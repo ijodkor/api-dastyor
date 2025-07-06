@@ -8,7 +8,7 @@
             <!-- Model -->
             <div class="mb-3">
                 <label class="form-label" for="model">Model</label>
-                <select wire:model="modelName" wire:click="choose" name="model[name]" id="model" class="form-select">
+                <select wire:model="modelName" wire:change="choose" name="model[name]" id="model" class="form-select">
                     <option value="">Modelni tanlang</option>
                     @foreach($models as $model)
                         <option value="{{ $model->name }}">{{ $model->name }} ({{ $model->namespace }})</option>

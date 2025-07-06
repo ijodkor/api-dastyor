@@ -8,7 +8,8 @@
             @csrf
             <div class="mb-3">
                 <label class="form-label" for="table[name]">Jadval nomi</label>
-                <select name="table[name]" id="table[name]" wire:model="tableName" wire:click="choose"
+                <select name="table[name]" id="table[name]"
+                        wire:model="tableName" wire:change="choose"
                         class="form-select">
                     <option value="">Jadvalni tanlang</option>
                     @foreach($tables as $table)

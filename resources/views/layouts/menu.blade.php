@@ -25,7 +25,7 @@
         <button type="button" class="step-trigger">
             <span class="bs-stepper-circle"><i class="ti ti-file-3d"></i> </span>
             <span class="bs-stepper-label">
-                <span class="bs-stepper-title">Kengaytirilgan kontroller</span>
+                <span class="bs-stepper-title">Kengaytirilgan quruvchi</span>
             </span>
         </button>
     </a>

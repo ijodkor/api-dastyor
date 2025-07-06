@@ -13,7 +13,7 @@ class MethodWire extends BuilderWire {
     public string $namespace;
 
     public array $meta = [
-        'description' => "Kontrollerga method yaratuvchi",
+        'description' => "Kontrollerga funksiya yaratuvchi",
         'route' => "methods.store"
     ];
 

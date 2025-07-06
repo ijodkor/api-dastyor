@@ -6,7 +6,7 @@ class RequestWire extends BuilderWire {
 
     // Props
     public array $meta = [
-        'description' => "So\u{2018}rov tutuvchi yaratuvchi\r(Request)",
+        'description' => "So\u{2018}rov tutuvchi yaratuvchisi",
         'route' => "requests.store"
     ];
 
