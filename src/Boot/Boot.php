@@ -42,10 +42,12 @@ class Boot {
             "css/theme-default.css",
             "css/demo.css",
             "css/bs-stepper.css",
+            "css/main.css",
         ];
         $styles = [];
         foreach ($files as $file) {
-            $styles[] = "<link rel='stylesheet' href='" . asset('vendor/generator/assets/' . $file) . "' />";
+            $asset = asset('vendor/generator/assets/' . $file);
+            $styles[] = "<link rel=\"stylesheet\" href=\"$asset\" />";
         }
         $styles = implode("\n", $styles);
         return new HtmlString($styles);

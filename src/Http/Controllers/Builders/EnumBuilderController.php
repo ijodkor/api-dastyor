@@ -5,7 +5,7 @@ namespace Ijodkor\Dastyor\Http\Controllers\Builders;
 use Exception;
 use Illuminate\Support\Arr;
 use Ijodkor\Dastyor\Http\Controllers\Controller;
-use Ijodkor\Dastyor\Http\Requests\GenerateEnumRequest;
+use Ijodkor\Dastyor\Http\Requests\EnumGenerateRequest;
 use Ijodkor\Dastyor\Services\GenerateEnum;
 
 class EnumBuilderController extends Controller {
@@ -13,7 +13,7 @@ class EnumBuilderController extends Controller {
     public function __construct(private readonly GenerateEnum $enum) {
     }
 
-    public function __invoke(GenerateEnumRequest $request) {
+    public function __invoke(EnumGenerateRequest $request) {
         try {
             $attributes = $request->validated();
 

@@ -2,14 +2,14 @@
 
 namespace Ijodkor\Dastyor\Livewire;
 
-use Illuminate\Contracts\View\View;
-use Illuminate\Support\Collection;
-use Livewire\Attributes\Validate;
 use Ijodkor\Dastyor\Boot\Boot;
 use Ijodkor\Dastyor\Models\ColumnType;
 use Ijodkor\Dastyor\Services\Migration\MigrationBuildService;
 use Ijodkor\Dastyor\Shared\Utils\EntityFinderService;
 use Ijodkor\Dastyor\Shared\Utils\TableFinderService;
+use Illuminate\Contracts\View\View;
+use Illuminate\Support\Collection;
+use Livewire\Attributes\Validate;
 
 
 class MigrationWire extends BuilderWire {
@@ -24,10 +24,10 @@ class MigrationWire extends BuilderWire {
     public string $namespace = "database\migrations";
 
     #[Validate('required|min:4')]
-    public $name = '';
+    public string $name = '';
 
     #[Validate('boolean')]
-    public $softDelete = false;
+    public bool $softDelete = false;
 
     #[Validate([
         'columns.*.name' => 'required|string',
@@ -58,7 +58,8 @@ class MigrationWire extends BuilderWire {
         $types = Boot::getFromJson(Boot::getDatabase("data-types.json"));
         $this->types = collect();
         foreach ($types as $type) {
-            $this->types->push(new ColumnType($type));
+//            $m = new ColumnType();
+            $this->types->push($type);
         }
     }
 
@@ -86,7 +87,7 @@ class MigrationWire extends BuilderWire {
             'columns' => $this->columns->toArray()
         ]);
 
-        session()->flash('success', 'Jadval muvaffaqiyatli yaratildi!');
+        session()->flash('success', "Jadval quruvchi muvaffaqiyatli yaratildi!");
     }
 
     public function remove(int $key): void {

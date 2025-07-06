@@ -4,7 +4,7 @@ namespace Ijodkor\Dastyor\Http\Controllers;
 
 use Exception;
 use Illuminate\Support\Arr;
-use Ijodkor\Dastyor\Http\Requests\GeneratorRequest;
+use Ijodkor\Dastyor\Http\Requests\RequestBuilderRequest;
 use Ijodkor\Dastyor\Services\ControllerBuilderService;
 
 class ControllerBuilderController extends Controller {
@@ -12,7 +12,7 @@ class ControllerBuilderController extends Controller {
     public function __construct(private readonly ControllerBuilderService $service) {
     }
 
-    public function __invoke(GeneratorRequest $request) {
+    public function __invoke(RequestBuilderRequest $request) {
         try {
             $attributes = $request->validated();
             $model = Arr::get($attributes, 'model');

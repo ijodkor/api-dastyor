@@ -1,4 +1,4 @@
-@use(Ijodkor\Dastyor\Boot\Boot)
+@php use Ijodkor\Dastyor\Boot\Boot; @endphp
 <!doctype html>
 <html lang="{{ app()->getLocale() }}" class="light-style layout-navbar-fixed layout-menu-fixed layout-compact">
 <head>

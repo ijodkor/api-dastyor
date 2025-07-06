@@ -4,15 +4,19 @@ namespace Ijodkor\Dastyor\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GenerateMethodRequest extends FormRequest {
+class RequestBuilderRequest extends FormRequest {
+
     public function authorize(): bool {
         return true;
     }
 
     public function rules(): array {
         return [
-            'namespace' => 'required|string',
+            'model.name' => 'required|string|between:2,255',
+            'model.namespace' => 'required|string|between:2,255',
             'name' => 'required|string|between:2,255',
+            'namespace' => '',
+            'list_request' => 'boolean',
         ];
     }
 }

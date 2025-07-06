@@ -51,7 +51,7 @@
                                         data-bs-target="#accordionStyle1-{{ $loop->index }}"
                                         aria-expanded="false">
                                         <label class="form-check-label ml-2"
-                                               for="defaultCheck1"> {{ $relationship['relation_model'] }}
+                                               for="relation_type"> {{ $relationship['relation_model'] }}
                                             ({{ $relationship['relation_type'] }}) </label>
                                     </button>
                                 </div>
@@ -132,8 +132,15 @@
 </div>
 
 <script>
-    document.getElementById('defaultCheck1').addEventListener('click', function (event) {
-        event.preventDefault();
-        alert('Checkbox click prevented!');
-    });
+    document.addEventListener('livewire:initialized', () => {
+        const item = document.getElementById('relation_type');
+        if (item == null) {
+            return
+        }
+
+        item.addEventListener('click', function (event) {
+            event.preventDefault();
+            alert('Checkbox click prevented!');
+        });
+    })
 </script>

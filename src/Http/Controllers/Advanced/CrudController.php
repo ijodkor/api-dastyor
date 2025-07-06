@@ -5,7 +5,7 @@ namespace Ijodkor\Dastyor\Http\Controllers\Advanced;
 use Exception;
 use Illuminate\Contracts\View\View;
 use Ijodkor\Dastyor\Http\Controllers\Controller;
-use Ijodkor\Dastyor\Http\Requests\CrudRequest;
+use Ijodkor\Dastyor\Http\Requests\CrudBuilderRequest;
 use Ijodkor\Dastyor\Services\GeneratorService;
 
 class CrudController extends Controller {
@@ -17,7 +17,7 @@ class CrudController extends Controller {
         return view('generator::crud.create');
     }
 
-    public function store(CrudRequest $request) {
+    public function store(CrudBuilderRequest $request) {
         try {
             $this->service->crud($request->validated());
             return redirect()->back();

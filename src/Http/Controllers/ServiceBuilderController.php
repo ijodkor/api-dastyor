@@ -4,7 +4,7 @@ namespace Ijodkor\Dastyor\Http\Controllers;
 
 use Exception;
 use Illuminate\Support\Arr;
-use Ijodkor\Dastyor\Http\Requests\GenerateServiceRequest;
+use Ijodkor\Dastyor\Http\Requests\ServiceBuilderRequest;
 use Ijodkor\Dastyor\Services\ServiceBuilder;
 
 class ServiceBuilderController extends Controller {
@@ -17,7 +17,7 @@ class ServiceBuilderController extends Controller {
     /**
      * @description Service class
      */
-    public function __invoke(GenerateServiceRequest $request) {
+    public function __invoke(ServiceBuilderRequest $request) {
         try {
             $data = $request->validated();
             $model = Arr::get($data, 'model');

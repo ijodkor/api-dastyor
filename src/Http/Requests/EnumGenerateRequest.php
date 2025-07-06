@@ -4,7 +4,7 @@ namespace Ijodkor\Dastyor\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GenerateEnumRequest extends FormRequest {
+class EnumGenerateRequest extends FormRequest {
     public function authorize(): bool {
         return true;
     }

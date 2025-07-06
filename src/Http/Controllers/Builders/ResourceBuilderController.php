@@ -5,7 +5,7 @@ namespace Ijodkor\Dastyor\Http\Controllers\Builders;
 use Exception;
 use Illuminate\Support\Arr;
 use Ijodkor\Dastyor\Http\Controllers\Controller;
-use Ijodkor\Dastyor\Http\Requests\GeneratorRequest;
+use Ijodkor\Dastyor\Http\Requests\RequestBuilderRequest;
 use Ijodkor\Dastyor\Services\ResourceBuilderService;
 
 class ResourceBuilderController extends Controller {
@@ -13,7 +13,7 @@ class ResourceBuilderController extends Controller {
     public function __construct(private readonly ResourceBuilderService $service) {
     }
 
-    public function __invoke(GeneratorRequest $request) {
+    public function __invoke(RequestBuilderRequest $request) {
         try {
             $attributes = $request->validated();
             $model = Arr::get($attributes, 'model');

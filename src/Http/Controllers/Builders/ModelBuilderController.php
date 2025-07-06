@@ -5,14 +5,14 @@ namespace Ijodkor\Dastyor\Http\Controllers\Builders;
 use Exception;
 use Illuminate\Support\Arr;
 use Ijodkor\Dastyor\Http\Controllers\Controller;
-use Ijodkor\Dastyor\Http\Requests\ModelGenerateRequest;
+use Ijodkor\Dastyor\Http\Requests\ModelBuilderRequest;
 use Ijodkor\Dastyor\Services\ModelBuilderService;
 
 class ModelBuilderController extends Controller {
 
     public function __construct(private readonly ModelBuilderService $service) { }
 
-    public function __invoke(ModelGenerateRequest $request) {
+    public function __invoke(ModelBuilderRequest $request) {
         try {
             $data = $request->validated();
             $table = Arr::get($data, 'table');
