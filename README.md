@@ -5,7 +5,7 @@ Laravel dastyor, loyihani bir zumda qurishga yordam beradi
 ## Talablar (Requirements)
 
 - PHP ^8.2
-- Laravel ^11
+- Laravel ^11|^12
 
 ## Talqinlar mutonosibligi (Version Compatibility)
 
