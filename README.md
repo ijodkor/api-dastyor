@@ -11,7 +11,8 @@ Laravel dastyor, loyihani bir zumda qurishga yordam beradi
 
 | Laravel | Laravel Generator | 
 |:--------|:------------------|
-| 11.x    | 1.2.x             |
+| 11.x    | 1.1.x             |
+| 12.x    | 1.1.x             |
 
 ## O&#8216;rnatish (Installation)
 
